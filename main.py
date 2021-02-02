@@ -17,7 +17,7 @@ def main():
     url = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,school.name,2013.student.size"
     all_data = get_date(url)
     for item in all_data:
-        print(all_data)
+        print(item)
 
 #If running to get functions dont run main
 #If running to run, run main
