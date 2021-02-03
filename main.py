@@ -1,7 +1,7 @@
 import requests
 import secrets
 
-def get_date(url:str):
+def get_data(url:str):
     all_data = []
     full_url = f"{url}&api_key={secrets.api_key}&page=3"
     response = requests.get(full_url)
@@ -14,8 +14,8 @@ def get_date(url:str):
     return all_data
 
 def main():
-    url = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,school.state,school.name"
-    all_data = get_date(url)
+    url = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,school.state,school.name,school.city,2018.student.size,2017.student.size,2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,2016.repayment.3_yr_repayment.overall"
+    all_data = get_data(url)
     for item in all_data:
         print(item)
 
