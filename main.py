@@ -15,12 +15,15 @@ def get_data(url:str,page):
 
 def main():
     f = open("School_Data.txt", "w")
+    percentCompleted = 0
     for page in range(1, 161):
         url = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,school.state,school.name,school.city,2018.student.size,2017.student.size,2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,2016.repayment.3_yr_repayment.overall"
         all_data = get_data(url,page)
         for item in all_data:
             f.write(str(item))
             f.write("\n")
+        percentCompleted = (page/161) * 100
+        print(percentCompleted,"%")
     f.close()
 
 #If running to get functions dont run main
